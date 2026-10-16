@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7d1424">
+  <meta name="description" content="Assistente di supporto per attività RSA e RSU FIOM-CGIL.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Assistente Sindacale FIOM-CGIL</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="mark" aria-hidden="true">F</div>
+    <div><p class="eyebrow">STRUMENTO DI SUPPORTO</p><h1>Assistente Sindacale <span>FIOM-CGIL</span></h1></div>
+    <button id="installBtn" class="install" hidden>Installa app</button>
+  </header>
+  <main>
+    <section class="notice" role="note">
+      <strong>Versione iniziale — demo</strong>
+      <p>Non inserire dati personali, documenti aziendali riservati o informazioni sensibili. Le risposte dimostrative non sono consulenza legale.</p>
+    </section>
+    <nav class="tabs" aria-label="Sezioni">
+      <button class="tab active" data-view="assistant">Assistente</button>
+      <button class="tab" data-view="sources">Fonti</button>
+      <button class="tab" data-view="deadlines">Scadenze</button>
+      <button class="tab" data-view="documents">Documenti</button>
+    </nav>
+    <section id="assistant" class="panel">
+      <div class="panel-heading"><div><p class="eyebrow">RSA · RSU</p><h2>Come posso aiutarti?</h2></div><span class="status">Demo locale</span></div>
+      <p class="muted">Esempi: preparare una scaletta per un incontro, capire quali fonti ufficiali consultare, impostare una bozza di comunicazione.</p>
+      <div class="quick-actions">
+        <button class="chip" data-prompt="Prepara una scaletta per un incontro sindacale, senza inventare riferimenti normativi.">Scaletta incontro</button>
+        <button class="chip" data-prompt="Quali fonti ufficiali devo verificare per una questione di salute e sicurezza sul lavoro?">Salute e sicurezza</button>
+        <button class="chip" data-prompt="Aiutami a impostare una bozza neutra di richiesta di chiarimenti alla direzione.">Bozza comunicazione</button>
+      </div>
+      <div id="chat" class="chat" aria-live="polite"><div class="bubble assistant-bubble"><strong>Assistente demo</strong><p>Posso aiutarti a organizzare il lavoro e indicare le fonti da verificare. In questa versione non consulto automaticamente la normativa aggiornata e non sono collegato a un modello AI.</p></div></div>
+      <form id="askForm" class="composer">
+        <label for="question">La tua richiesta</label>
+        <textarea id="question" rows="3" maxlength="2000" placeholder="Descrivi la questione senza inserire dati riservati…" required></textarea>
+        <div class="composer-footer"><span id="charCount">0/2000</span><button class="primary" type="submit">Invia richiesta</button></div>
+      </form>
+    </section>
+    <section id="sources" class="panel" hidden>
+      <p class="eyebrow">CONSULTAZIONE</p><h2>Fonti ufficiali</h2>
+      <p class="muted">I collegamenti aprono siti esterni. Controlla sempre data, versione e applicabilità al caso concreto.</p>
+      <ul id="sourceList" class="source-list"></ul>
+    </section>
+    <section id="deadlines" class="panel" hidden>
+      <p class="eyebrow">PROMEMORIA</p><h2>Scadenze</h2>
+      <p class="muted">Promemoria dimostrativo salvato solo nella sessione corrente. Non usare come unico sistema per scadenze legali o contrattuali.</p>
+      <form id="deadlineForm" class="deadline-form">
+        <label for="deadlineTitle">Promemoria</label><input id="deadlineTitle" maxlength="120" required placeholder="Es. verificare convocazione">
+        <label for="deadlineDate">Data</label><input id="deadlineDate" type="date" required>
+        <button class="primary" type="submit">Aggiungi promemoria</button>
+      </form>
+      <ul id="deadlineList" class="deadline-list"></ul>
+    </section>
+    <section id="documents" class="panel" hidden>
+      <p class="eyebrow">AREA DOCUMENTI</p><h2>Archivio non attivo</h2>
+      <div class="empty-state"><span aria-hidden="true">🔒</span><h3>Protezione non ancora configurata</h3><p>Non caricare file in questa versione. Mancano autenticazione, cifratura, autorizzazioni e gestione sicura dei dati.</p></div>
+    </section>
+  </main>
+  <footer><p>Progetto indipendente di supporto. Non rappresenta una comunicazione ufficiale FIOM-CGIL.</p><p>Verifica normativa: <a href="https://www.normattiva.it/" target="_blank" rel="noopener noreferrer">Normattiva</a> · <a href="https://www.cnel.it/archivio-contratti/" target="_blank" rel="noopener noreferrer">Archivio CCNL CNEL</a></p></footer>
+  <script src="./app.js" defer></script>
+</body>
+</html>

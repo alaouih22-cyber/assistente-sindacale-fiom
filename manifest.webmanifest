@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "Assistente Sindacale FIOM-CGIL",
+  "short_name": "Assistente FIOM",
+  "description": "Strumento dimostrativo di supporto per attività RSA e RSU.",
+  "lang": "it-IT",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#7d1424",
+  "icons": [
+    { "src": "./icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
